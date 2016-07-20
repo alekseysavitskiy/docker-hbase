@@ -1,0 +1,5 @@
+[template]
+src = "hbase-site.xml.tmpl"
+dest = "/etc/hbase/hbase-site.xml"
+owner = "hbase"
+mode = "0644"

@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+  hbase-master:
+    image: actionml/hbase
+    hostname: hbase-master
+    command: hbase master start
+    environment:
+      - HDFS_NAMENODE=namenode-primary
+      - ZK_QUORUM=zookeeper-a,zookeeper-b,zookeeper-c
+
+  regionserver-a:
+    image: actionml/hbase
+    hostname: dockerhbase_regionserver-a_1.actionml
+    command: hbase regionserver start
+    environment:
+      - HDFS_NAMENODE=namenode-primary
+      - ZK_QUORUM=zookeeper-a,zookeeper-b,zookeeper-c
+
+  regionserver-b:
+    image: actionml/hbase
+    hostname: dockerhbase_regionserver-b_1.actionml
+    command: hbase regionserver start
+    environment:
+      - HDFS_NAMENODE=namenode-primary
+      - ZK_QUORUM=zookeeper-a,zookeeper-b,zookeeper-c
+
+networks:
+  default:
+    external:
+      name: actionml

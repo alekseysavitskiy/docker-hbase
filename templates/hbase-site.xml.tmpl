@@ -38,4 +38,20 @@
     <name>hbase.zookeeper.quorum</name>
     <value>{{getenv "ZK_QUORUM"}}</value>
   </property>
+
+  <!-- Hartonoworks best practices -->
+  <property>
+    <name>hbase.rpc.timeout</name>
+    <value>300000</value>
+  </property>
+
+  <property>
+    <name>hbase.client.scanner.timeout.period</name>
+    <value>300000</value>
+  </property>
+
+  <property>
+    <name>zookeeper.session.timeout</name>
+    <value>300000</value>
+  </property>
 </configuration>

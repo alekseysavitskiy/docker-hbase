@@ -12,7 +12,7 @@ LABEL vendor=ActionML \
 
 # Update alpine and install required tools
 RUN apk update && apk add --update bash curl && \
-  curl -L http://dl-cdn.alpinelinux.org/alpine/edge/testing/x86_64/shadow-4.2.1-r3.apk \
+  curl -L http://nl.alpinelinux.org/alpine/edge/community/x86_64/shadow-4.2.1-r6.apk \
        -o /tmp/shadow.apk && apk add /tmp/shadow.apk && rm /tmp/*
 
 ## Fetch, unpack hbase dist and prepare layout

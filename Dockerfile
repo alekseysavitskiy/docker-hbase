@@ -1,19 +1,18 @@
 FROM java:8-jre-alpine
 MAINTAINER Denis Baryshev <dennybaa@gmail.com>
 
-ENV HBASE_VERSION 1.2.2
+ENV HBASE_VERSION 1.2.3
 ENV HBASE_HOME /usr/local/hbase-${HBASE_VERSION}
 ENV HBASE_CONF_DIR /etc/hbase
 # Default port to connect Zookeeper to
 ENV ZK_PORT 2181
 
 LABEL vendor=ActionML \
-      version_tags="[\"1.2\",\"1.2.2\"]"
+      version_tags="[\"1.2\",\"1.2.3\"]"
 
 # Update alpine and install required tools
-RUN apk update && apk add --update bash curl && \
-  curl -L http://nl.alpinelinux.org/alpine/edge/community/x86_64/shadow-4.2.1-r6.apk \
-       -o /tmp/shadow.apk && apk add /tmp/shadow.apk && rm /tmp/*
+RUN echo "@community http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
+    apk add --update --no-cache bash curl shadow@community
 
 ## Fetch, unpack hbase dist and prepare layout
 RUN curl -L http://www-us.apache.org/dist/hbase/$HBASE_VERSION/hbase-$HBASE_VERSION-bin.tar.gz \

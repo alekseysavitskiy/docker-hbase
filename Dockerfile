@@ -1,14 +1,14 @@
 FROM java:8-jre-alpine
 MAINTAINER Denis Baryshev <dennybaa@gmail.com>
 
-ENV HBASE_VERSION 1.2.3
+ENV HBASE_VERSION 1.4.1
 ENV HBASE_HOME /usr/local/hbase-${HBASE_VERSION}
 ENV HBASE_CONF_DIR /etc/hbase
 # Default port to connect Zookeeper to
 ENV ZK_PORT 2181
 
 LABEL vendor=ActionML \
-      version_tags="[\"1.2\",\"1.2.3\"]"
+      version_tags="[\"1.4\",\"1.4.1\"]"
 
 # Update alpine and install required tools
 RUN echo "@community http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \

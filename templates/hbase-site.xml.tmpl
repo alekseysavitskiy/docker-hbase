@@ -16,12 +16,13 @@
 <configuration>
   <property>
      <name>hbase.cluster.distributed</name>
-     <value>true</value>
+     <!--value>true</value-->
+     <value>{{getenv "HBASE_CLUSTER_DISTRIBUTED"}}</value>
   </property>
 
   <property>
     <name>hbase.rootdir</name>
-    <value>hdfs://{{getenv "HDFS_NAMENODE"}}:9000/hbase</value>
+    <value>{{getenv "HBASE_ROOTDIR"}}</value>
   </property>
 
   <property>

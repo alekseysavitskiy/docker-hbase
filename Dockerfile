@@ -1,14 +1,14 @@
 FROM java:8-jre-alpine
 MAINTAINER Denis Baryshev <dennybaa@gmail.com>
 
-ENV HBASE_VERSION 1.4.1
+ENV HBASE_VERSION 1.4.4
 ENV HBASE_HOME /usr/local/hbase-${HBASE_VERSION}
 ENV HBASE_CONF_DIR /etc/hbase
 # Default port to connect Zookeeper to
 ENV ZK_PORT 2181
 
 LABEL vendor=ActionML \
-      version_tags="[\"1.4\",\"1.4.1\"]"
+      version_tags="[\"1.4\",\"1.4.4\"]"
 
 # Update alpine and install required tools
 RUN echo "@community http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
@@ -21,7 +21,7 @@ RUN curl -L http://www-us.apache.org/dist/hbase/$HBASE_VERSION/hbase-$HBASE_VERS
       ln -s ${HBASE_CONF_DIR} ${HBASE_HOME}/conf
 
 ## Install confd
-RUN curl -L https://github.com/kelseyhightower/confd/releases/download/v0.12.0-alpha3/confd-0.12.0-alpha3-linux-amd64 \
+RUN curl -L https://github.com/kelseyhightower/confd/releases/download/v0.16.0/confd-0.16.0-linux-amd64 \
           -o /usr/local/bin/confd && chmod 755 /usr/local/bin/confd
 
 ## Create users (to go "non-root") and set directory permissions

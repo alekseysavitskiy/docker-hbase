@@ -8,7 +8,7 @@ ENV HBASE_CONF_DIR /etc/hbase
 ENV ZK_PORT 2181
 
 LABEL vendor=ActionML \
-      version_tags="[\"1.4\",\"1.4.5\"]"
+      version_tags="[\"1.4\",\"1.4.6\"]"
 
 # Update alpine and install required tools
 RUN echo "@community http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \

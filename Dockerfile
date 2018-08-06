@@ -1,7 +1,7 @@
 FROM java:8-jre-alpine
 MAINTAINER Denis Baryshev <dennybaa@gmail.com>
 
-ENV HBASE_VERSION 1.4.5
+ENV HBASE_VERSION 1.4.6
 ENV HBASE_HOME /usr/local/hbase-${HBASE_VERSION}
 ENV HBASE_CONF_DIR /etc/hbase
 # Default port to connect Zookeeper to
